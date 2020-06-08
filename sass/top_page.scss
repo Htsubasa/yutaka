@@ -33,6 +33,9 @@ $sp-second: 480px;  // スマホ
   }
 
 
+body{
+    font-family: 'Noto Serif JP';
+}
 
 
 
@@ -54,9 +57,9 @@ $sp-second: 480px;  // スマホ
         padding: 0 10px;
 
 
-        @include tab {
-            height: 80px;
-        };
+    @include tab {
+        height: 80px;
+    };
 
 
 
@@ -112,21 +115,30 @@ $sp-second: 480px;  // スマホ
         transition: all 400ms;
         -webkit-transition:all 400ms;
     }
+
+    @include sp-second{
+        right: 40px;
+      }
+
 }
 
 
 .btn-gnavi{
-  
+    z-index: 1000;
+
+
     span{
         @include tab{
             position: absolute;
             width: 50px;
-            height: 5px;
+            height: 3px;
             background: white;
-            border-radius: 10px;
             -webkit-transition: all 400ms;
             transition: all 400ms;
-            z-index: 1000;
+          }
+
+          @include sp-second{
+            width: 45px;
           }
     
 }/*span*/
@@ -164,44 +176,20 @@ $sp-second: 480px;  // スマホ
 
 
 
+.btn-gnavi.hb-open span:nth-of-type(1) {
+    -webkit-transform: translateY(10px) rotate(-230deg);
+    transform: translateY(10px) rotate(-230deg);
+    transition: 0.5s;
+  }
+  .btn-gnavi.hb-open span:nth-of-type(2) {
+    opacity: 0;
+  }
+ .btn-gnavi.hb-open span:nth-of-type(3) {
+    -webkit-transform:translateY(-10px) rotate(230deg);
+    transform: translateY(-10px) rotate(230deg);
+    transition: 0.5s;
 
-
-.btn-gnavi.hb-open{
-    @include tab{
-        transform: rotate(180deg);
-        -webkit-transform:rotate(180deg);
-    }
-}
-
-.btn-gnavi.hb-open span{
-    @include tab{
-        background: #fff;
-
-    }
-}
-
-
-.btn-gnavi.hb-open span:nth-child(1){
-    @include tab{
-        transform: translateY(15px) rotate(-45deg);
-    }
-}
-
-
-.btn-gnavi.hb-open span:nth-child(2){
-    @include tab{
-        opacity: 0;
-
-        }
-}
-       
-
-.btn-gnavi.hb-open span:nth-child(3){
-    @include tab{
-        transform: translateY(-5px) rotate(45deg);
-        }
-}
-
+  }
 
 
 
@@ -211,19 +199,42 @@ $sp-second: 480px;  // スマホ
     display: flex;
 }
 
-    &-nav{
+.open &-nav {
+    @include tab{
+        visibility: visible;
+        opacity: 1;
 
-        @include tab {
-            position: fixed;
-            width: 300px;
-            top: 0;
-            right: -600px;
-            background-color: rgba(33,33,33,.9);
-            height: 100%;
-            padding-top: 100px;
-            z-index: 1;
-            width: 60%;
-            };
+        li{
+            opacity: 1;
+            transform: translateX(0);
+            transition:  transform 1s ease, opacity .9s ease;
+        }
+    }
+}
+
+
+
+&-nav{
+
+@include tab {
+    background: #000;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 500;
+    text-align: center;
+    display: flex;
+    visibility: hidden;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 29px;
+    opacity: 0;
+    transition: opacity .6s ease, visibility .6s ease;
+};
 
 
         ul{
@@ -236,6 +247,7 @@ $sp-second: 480px;  // スマホ
             };
 
             
+          
 
 
             li{
@@ -245,15 +257,37 @@ $sp-second: 480px;  // スマホ
 
                 @include pc {
                     margin-right: 3vw;
+                    font-size: 1em;
+
                 };
 
-                @include pc {
-                    font-size: 1em;
-                };
 
                 @include tab {
+                    font-size: 20px;
                     width: 100%;
-                    padding-bottom: 30px;
+                    padding-bottom: 20px;
+                    opacity: 0;
+                    transform: translateX(200px);
+                    transition:  transform .6s ease, opacity .2s ease;
+                    
+                     &:nth-child(2) {
+                        transition-delay: .15s;
+                      }
+                      &:nth-child(3) {
+                        transition-delay: .3s;
+                      }
+                      &:nth-child(4) {
+                        transition-delay: .45s;
+                      }
+                      &:nth-child(5) {
+                        transition-delay: .6s;
+                      }
+                      &:nth-child(6) {
+                        transition-delay: .75s;
+                      }
+                      &:nth-child(7) {
+                        transition-delay: .9s;
+                      }
                 };
 
 
@@ -276,8 +310,12 @@ $sp-second: 480px;  // スマホ
      }/*nav*/
 
 
-     &-btn{
 
+
+
+
+
+     &-btn{
 
         @include tab {
             display: none;
@@ -290,6 +328,7 @@ $sp-second: 480px;  // スマホ
              padding: 12px 26px;
              color: #B2A168;
              font-size: 20px;
+             font-family: 'Noto Sans JP';
 
              @include pc {
                 font-size: 1.2em;
@@ -336,25 +375,10 @@ $sp-second: 480px;  // スマホ
         background-repeat: no-repeat;
         max-width: 1300px;
         width: 100%;
-        height: 785px;
         background-size: cover;
         margin: 0 auto;    
-        background-position: center;          /* 背景の位置指定 */
+        background-position: fixed;          /* 背景の位置指定 */
         position: relative;
-
-        @include tab {
-            height: 600px;
-        };
-
-        @include sp {
-            height: 400px;
-        };
-
-        @include sp-second {
-            height: 350px;
-        };
-
-
 
        }
     
@@ -423,8 +447,27 @@ $sp-second: 480px;  // スマホ
     background-repeat: no-repeat;
     background-position: top 160px right -140px;
 
+
+    @include pc {
+        background-position: top 160px right -340px;
+    };
+
+
+    @include tab {
+        background-size: 130%;
+        background-position: top 160px right -160px;
+    };
+
+    @include sp {
+        background-size: 120%;
+        background-position: top 160px right -140px;
+    };
+
     @include sp-second {
         padding-bottom: 140px;
+        background-size: 140%;
+        background-position: top 130px right -170px;
+
     };
 
 
@@ -433,6 +476,7 @@ $sp-second: 480px;  // スマホ
         width: 100%;
         margin: 0 auto;
         padding-top: 135px;
+        position: relative;
 
         
         @include pc {
@@ -460,16 +504,15 @@ $sp-second: 480px;  // スマホ
             };
         }
 
-        .en-title::after{
-            content: '';
+    
+
+        .border{
             position: absolute;
-            left: 0;
-            top: 50px;
+            top: 170px;
+            height: 0px;
             width: 1px;
-            height: 225px;
-            margin: auto;
-            background-color: white;
-            
+            background: white;
+
             @include tab {
                 display: none;
             };
@@ -562,6 +605,7 @@ $sp-second: 480px;  // スマホ
             text-align: center;
             padding: 17px 68px;
             margin-top: 55px;
+            font-family: 'Oswald';
 
             @include pc {
             margin-top: 35px;
@@ -642,11 +686,19 @@ $sp-second: 480px;  // スマホ
         background-position: 110% -7%; 
         padding-top: 130px;
 
+
         @include tab {
             padding-top: 100px;
         };
 
+        @include sp {
+            background-size: 60%;
+            background-position: 130% -50px; 
+        };
+
         @include sp-second {
+            background-size: 80%;
+            background-position: 130% -30px; 
         };
 
 
@@ -660,6 +712,8 @@ $sp-second: 480px;  // スマホ
         width: 100%;
         margin: 0 auto;
         margin-bottom: 100px; 
+        position: relative;
+
 
         @include pc {
             max-width: 1024px;
@@ -701,31 +755,28 @@ $sp-second: 480px;  // スマホ
             @include sp {
                 font-size: 28px;
             };
-    
-    
         }
 
-        .en-title::after{
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50px;
-            width: 1px;
-            height: 625px;
-            margin: auto;
-            background-color: white;
-            
-            @include tab {
-                display: none;
-            };
-
-
-        }
-
+    
     }/*title*/
 
+    
+    &-border{
+        position: absolute;
+        top: 50px;
+        height: 0px;
+        width: 1px;
+        background: white;
 
-   
+
+        @include tab {
+            display: none;
+        };
+    }
+
+
+
+
 
     &-contain{
         display: flex;
@@ -859,6 +910,8 @@ $sp-second: 480px;  // スマホ
         text-align: center;
         padding: 17px 68px;
         margin: 0 0 0 auto;
+        font-family: 'Oswald';
+
 
         @include tab {
             margin: 0 auto;
@@ -906,6 +959,7 @@ $sp-second: 480px;  // スマホ
         max-width: 1115px;
         width: 100%;
         margin: 0 auto;
+        position: relative;
 
         @include pc {
             max-width: 1020px;
@@ -916,6 +970,7 @@ $sp-second: 480px;  // スマホ
         color: white;
         margin-bottom: 100px;
         display: flex;
+        position: relative;
 
         @include pc {
             margin-bottom: 60px;
@@ -944,20 +999,7 @@ $sp-second: 480px;  // スマホ
 
         }
 
-        .en-title::after{
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50px;
-            width: 1px;
-            height: 400px;
-            margin: auto;
-            background-color: white;
-
-            @include tab {
-                display: none;
-            };
-        }
+      
 
         h2{
             font-size: 34px;
@@ -967,8 +1009,25 @@ $sp-second: 480px;  // スマホ
             @include tab {
                 margin-left: 0px;
             };
+
+            @include sp {
+                font-size: 28px;
+            };
         }
     }
+
+    &-border{
+        position: absolute;
+        top: 50px;
+        height: 0px;
+        width: 1px;
+        background: white;
+
+        @include tab {
+            display: none;
+        };
+    }
+
 
 
     &-contain{
@@ -1013,6 +1072,7 @@ $sp-second: 480px;  // スマホ
         @include sp-second {
             max-width: 280px;
             height: 180px;
+            margin-bottom: 140px;
         };
       
 
@@ -1075,6 +1135,11 @@ $sp-second: 480px;  // スマホ
             max-width: 650px;
         };
 
+        @include sp {
+            padding-top: 20px;
+            
+        };
+
         @include sp-second {
             padding-top: 0px;
             
@@ -1089,6 +1154,7 @@ $sp-second: 480px;  // スマホ
         text-align: center;
         padding: 17px 68px;
         margin: 0 0 0 auto;
+        font-family: 'Oswald';
 
         @include tab {
             margin: 0 auto;
@@ -1131,9 +1197,6 @@ $sp-second: 480px;  // スマホ
 
 
 
-
-
-
 .footer{
     background-color: #B2A168;
     height: 220px;
@@ -1142,10 +1205,22 @@ $sp-second: 480px;  // スマホ
     background-size: 25%;
     background-position: -3% 55%;
 
+    @include tab {
+        background-size: 35%;
+    };
+
+
     @include sp {
+        background-size: 45%;
+        background-position: -10% 55%;
         height: 260px;
     };
 
+    @include sp-second {
+        background-size: 260px;
+        background-position: -25% 125%;
+        height: 240px;
+    };
 
 
 
@@ -1195,6 +1270,7 @@ $sp-second: 480px;  // スマホ
         color: #FFFFFF;
         font-size: 16px;
         margin-bottom: 25px;
+        font-family: 'Noto Sans JP';
 
         @include sp {
             font-size: 12px;
@@ -1203,6 +1279,7 @@ $sp-second: 480px;  // スマホ
         @include sp-second {
             font-size: 10px;
             margin-bottom: 20px;
+            width: 120px;
         };
     }
 
@@ -1227,6 +1304,7 @@ $sp-second: 480px;  // スマホ
         padding-right: 43px;
         padding-left: 43px;
         line-height: 45px;
+        font-family: 'Noto Sans JP';
 
         @include pc {
         padding-right: 30px;
@@ -1248,7 +1326,7 @@ $sp-second: 480px;  // スマホ
 
         @include sp-second {
             height: 30px;
-            line-height: 30px;
+            line-height: 25px;
             
         };
 
@@ -1278,6 +1356,7 @@ $sp-second: 480px;  // スマホ
         padding-left: 34px;
         line-height: 45px;
         font-weight: bold;
+        font-family: 'Noto Sans JP';
 
         @include pc {
             padding-right: 30px;
@@ -1292,7 +1371,7 @@ $sp-second: 480px;  // スマホ
         @include sp {
             font-size: 12px;
             height: 40px;
-            line-height: 40px;
+            line-height: 25px;
             width: 160px;
         };
 
@@ -1315,10 +1394,6 @@ $sp-second: 480px;  // スマホ
 
     &-navigation{
 
-        @include sp {
-            vertical-align: top;        
-        };
-
         ul{
             display: flex;
             list-style: none;
@@ -1329,8 +1404,8 @@ $sp-second: 480px;  // スマホ
             };
 
             @include sp {
-                position: absolute;
                 right: 3%;
+                display: initial;
                 
             };
 
@@ -1341,6 +1416,7 @@ $sp-second: 480px;  // スマホ
 
             @include pc {
                 padding: 0 25px;
+                
             };
 
             @include tab {
@@ -1350,31 +1426,37 @@ $sp-second: 480px;  // スマホ
             };
 
             @include sp {
+                padding: 0 5px;
+                vertical-align: text-top;  
                 writing-mode: vertical-rl;
-                vertical-align: top;
-                padding: 0 10px;
             };
 
             @include sp-second {
-                font-size: 12px;
-                
+                font-size: 12px;                
             };
 
             
 
             a{
                 color: #FFFFFF;
+
             }
 
             a:hover{
                 opacity: 0.6;
                 transition: 0.3s;
             }
-
-
-
-
         }
+
+
+        li:first-child {
+            @include tab {
+                letter-spacing: 4px;               
+            };
+        }
+
+
+
 
         li+li{
             border-left: 0;
@@ -1388,11 +1470,12 @@ $sp-second: 480px;  // スマホ
     &-extra{
         display: flex;
         justify-content: flex-end;
+        font-family: 'Noto Sans JP';
 
         @include sp {
             display: block;
             margin-bottom: 30px;
-            margin-top: 90px;
+            margin-top: 20px;
             text-align: right;
         };
 
