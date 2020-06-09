@@ -106,10 +106,10 @@ $('.mainvisual-logo').prepend('<div id="curtain2">');
     });
     curtain.animate({
         opacity: 0
-    }, 2000).promise().then(function(){
+    }, 3000).promise().then(function(){
         curtain2.animate({
             opacity: 0
-        }, 2000)
+        }, 3000)
     });
 });
 
