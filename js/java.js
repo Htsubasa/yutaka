@@ -46,7 +46,7 @@ $(window).on('scroll', function (){
         winW = $(window).width();
         spped = 2000;
         $('.menu-border').animate({
-            height: '450px'
+            height: '600px'
         }, spped);          }
     });
   
