@@ -943,6 +943,7 @@ body {
   padding: 17px 68px;
   margin-top: 55px;
   font-family: 'Oswald';
+  letter-spacing: 5px;
   /*a*/
 }
 
@@ -1237,17 +1238,26 @@ body {
   color: white;
   margin-top: 35px;
   margin-bottom: 30px;
+  letter-spacing: 3px;
 }
 
 @media (max-width: 850px) {
   .menu-contain .box .menu-name {
     font-size: 20px;
+    letter-spacing: 1px;
   }
 }
 
 @media (max-width: 650px) {
   .menu-contain .box .menu-name {
+    letter-spacing: 3px;
     margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-contain .box .menu-name {
+    letter-spacing: 0px;
   }
 }
 
@@ -1303,6 +1313,7 @@ body {
   padding: 17px 68px;
   margin: 0 0 0 auto;
   font-family: 'Oswald';
+  letter-spacing: 5px;
 }
 
 @media (max-width: 850px) {
@@ -1584,6 +1595,7 @@ body {
   padding: 17px 68px;
   margin: 0 0 0 auto;
   font-family: 'Oswald';
+  letter-spacing: 5px;
 }
 
 @media (max-width: 850px) {
@@ -1673,6 +1685,7 @@ body {
   color: #FFFFFF;
   font-size: 27px;
   margin-bottom: 15px;
+  line-height: 27px;
 }
 
 @media (max-width: 850px) {
@@ -1932,6 +1945,12 @@ body {
     margin-bottom: 30px;
     margin-top: 20px;
     text-align: right;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-extra {
+    margin-top: 30px;
   }
 }
 
