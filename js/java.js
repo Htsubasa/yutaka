@@ -84,6 +84,40 @@ $(document).ready(function () {
 
 
 
+$(function () {
+    // bodyにdivを追加
+$('.mainvisual-inner').append('<div id="curtain">');
+$('.mainvisual-logo').prepend('<div id="curtain2">');
+    // 追加したdivを塗りつぶしてから透明化アニメーション
+    var curtain = $('#curtain').css({
+        position: 'absolute',
+        left: 0, top: 0,
+        width: '100%', height: '100%',
+        backgroundColor: 'black',
+        opacity: 100
+    });
+    var curtain2 = $('#curtain2').css({
+        position: 'absolute',
+        left: 0, top: 0,
+        width: '100%', height: '100%',
+        backgroundColor: 'black',
+        opacity: 100,
+        //zIndex: -1,
+    });
+    curtain.animate({
+        opacity: 0
+    }, 2000).promise().then(function(){
+        curtain2.animate({
+            opacity: 0
+        }, 2000)
+    });
+});
+
+
+
+
+
+
 
 
 
@@ -135,3 +169,6 @@ $(window).scroll(function (){
             }
         });
 });
+
+
+
