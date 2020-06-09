@@ -19,21 +19,21 @@ $(function(){
     });
 })(jQuery);
 
-
-
-
-$(function() {
-    $(window).scroll(function () {
-    if ($(this).scrollTop() > 400) {
-    winW = $(window).height();
-    spped = 2000}
-    $('.border').animate({
-        height: '250px'
-    }, spped);
-    
-});
-});
-
+$(window).on('scroll', function (){
+    var elem = $('.border');
+    elem.each(function () {
+      var elemOffset = $(this).offset().top;
+      var scrollPos = $(window).scrollTop();
+      var wh = $(window).height();
+      if(scrollPos > elemOffset - wh + 100){
+        winW = $(window).width();
+        spped = 1000;
+        $('.border').animate({
+            height: '250px'
+        }, spped);          }
+    });
+  
+  });
 
 
 $(window).on('scroll', function (){
@@ -44,19 +44,15 @@ $(window).on('scroll', function (){
       var wh = $(window).height();
       if(scrollPos > elemOffset - wh + 100){
         winW = $(window).width();
-        spped = 2000;
+        spped = 1000;
         $('.menu-border').animate({
-            height: '600px'
+            height: '650px'
         }, spped);          }
     });
   
   });
 
-
-
-
  
-
     $(window).on('scroll', function (){
         var elem = $('.news-border');
         elem.each(function () {
@@ -65,19 +61,13 @@ $(window).on('scroll', function (){
           var wh = $(window).height();
           if(scrollPos > elemOffset - wh + 100){
             winW = $(window).width();
-            spped = 2000;
+            spped = 1000;
             $('.news-border').animate({
                 height: '450px'
             }, spped);          }
         });
       
       });
-
-
-
-    
-
-    
 
 
 $(document).ready(function () {
@@ -87,27 +77,61 @@ $(document).ready(function () {
       $(window).resize(function () {
         hsize = $(window).height();
         $(".mainvisual-inner").css("height", hsize + "px");
-      });
-
-
-
-
-      $(function () {
-        // bodyにdivを追加
-        $('.mainvisual-inner').append('<div id="curtain">');
-    
-        // 追加したdivを塗りつぶしてから透明化アニメーション
-        $('#curtain').css({
-            position: 'absolute',
-            left: 0, top: 0,
-            width: '100%', height: '100%',
-            backgroundColor: 'black',
-            opacity: 100
-        }).animate({
-            opacity: 0
-        }, 3000, function () {
-            // アニメーション終了後に自身を消す
-            $(this).remove();
-        });
-    
     });
+/*mainvisual height adjustmment*/ 
+
+
+
+
+
+
+
+
+
+
+$(window).scroll(function (){
+    $('.en-title,.menu-title,.news-title').each(function(){
+        var elemPos = $(this).offset().top,
+            scroll = $(window).scrollTop(),
+            windowHeight = $(window).height();
+          if (scroll > elemPos - windowHeight + 100){
+              $(this).addClass('active');
+            }
+        });
+});
+
+
+$(window).scroll(function (){
+    $('.intro-content,.menu-contain,.news-contain').each(function(){
+        var elemPos = $(this).offset().top,
+            scroll = $(window).scrollTop(),
+            windowHeight = $(window).height();
+          if (scroll > elemPos - windowHeight + 200){
+              $(this).addClass('active');
+            }
+        });
+});
+
+$(window).scroll(function (){
+    $('.menu-contain,.news-contain').each(function(){
+        var elemPos = $(this).offset().top,
+            scroll = $(window).scrollTop(),
+            windowHeight = $(window).height();
+          if (scroll > elemPos - windowHeight + 150){
+              $(this).addClass('active');
+            }
+        });
+});
+
+
+
+$(window).scroll(function (){
+    $('.button').each(function(){
+        var elemPos = $(this).offset().top,
+            scroll = $(window).scrollTop(),
+            windowHeight = $(window).height();
+          if (scroll > elemPos - windowHeight + -40){
+              $(this).addClass('active');
+            }
+        });
+});
