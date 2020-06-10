@@ -704,6 +704,7 @@ body {
   background-position: fixed;
   /* 背景の位置指定 */
   margin-bottom: -130px;
+  height: 100vh;
 }
 
 .mainvisual-inner:before {
