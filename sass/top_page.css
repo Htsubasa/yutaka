@@ -324,11 +324,15 @@ svg:not([fill]) {
 
 body {
   font-family: 'Noto Serif JP';
+  background-color: white;
 }
 
 .header {
-  background-color: black;
   height: 100%;
+  background-color: black;
+  width: 100%;
+  z-index: 999;
+  position: relative;
   /*inner*/
   /*btn-gnavi*/
   /*nav*/
@@ -350,6 +354,9 @@ body {
           align-items: center;
   height: 130px;
   padding: 0 10px;
+  z-index: 1000;
+  position: relative;
+  background-color: black;
 }
 
 @media (max-width: 850px) {
@@ -682,6 +689,10 @@ body {
 /*header*/
 .mainvisual {
   background-color: black;
+  top: -130px;
+  position: relative;
+  z-index: 888;
+  /*logo*/
 }
 
 .mainvisual-inner {
@@ -709,6 +720,7 @@ body {
 .mainvisual-logo {
   height: 100%;
   position: relative;
+  /*img*/
 }
 
 .mainvisual-logo img {
@@ -743,7 +755,7 @@ body {
   }
 }
 
-/*header*/
+/*mainvisual*/
 .intro {
   background-color: black;
   padding-bottom: 180px;
