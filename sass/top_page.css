@@ -703,7 +703,7 @@ body {
   margin: 0 auto;
   background-position: fixed;
   /* 背景の位置指定 */
-  position: relative;
+  margin-bottom: -130px;
 }
 
 .mainvisual-inner:before {
