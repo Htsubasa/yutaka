@@ -1929,7 +1929,7 @@ body {
   .footer-btn-second {
     font-size: 12px;
     height: 40px;
-    line-height: 25px;
+    line-height: 35px;
     width: 160px;
   }
 }
@@ -1937,7 +1937,6 @@ body {
 @media (max-width: 480px) {
   .footer-btn-second {
     height: 30px;
-    line-height: 30px;
   }
 }
 
