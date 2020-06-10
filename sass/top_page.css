@@ -323,7 +323,7 @@ svg:not([fill]) {
 }
 
 body {
-  font-family: 'Noto Serif JP';
+  font-family: 'Noto Serif JP',sans-serif;
   background-color: white;
 }
 
@@ -652,7 +652,7 @@ body {
   padding: 12px 26px;
   color: #B2A168;
   font-size: 20px;
-  font-family: 'Noto Sans JP';
+  font-family: 'Noto Sans JP',sans-serif;
 }
 
 @media (max-width: 1150px) {
@@ -677,7 +677,7 @@ body {
 .header-btn .number {
   margin-left: 12px;
   font-size: 22px;
-  font-family: Oswald;
+  font-family: 'Oswald',sans-serif;
 }
 
 @media (max-width: 1150px) {
@@ -976,7 +976,7 @@ body {
   text-align: center;
   padding: 17px 68px;
   margin-top: 55px;
-  font-family: 'Oswald';
+  font-family: 'Oswald',sans-serif;
   letter-spacing: 5px;
   /*a*/
 }
@@ -1374,7 +1374,7 @@ body {
   text-align: center;
   padding: 17px 68px;
   margin: 0 0 0 auto;
-  font-family: 'Oswald';
+  font-family: 'Oswald',sans-serif;
   letter-spacing: 5px;
 }
 
@@ -1693,7 +1693,7 @@ body {
   text-align: center;
   padding: 17px 68px;
   margin: 0 0 0 auto;
-  font-family: 'Oswald';
+  font-family: 'Oswald',sans-serif;
   letter-spacing: 5px;
 }
 
@@ -1809,7 +1809,7 @@ body {
   color: #FFFFFF;
   font-size: 16px;
   margin-bottom: 25px;
-  font-family: 'Noto Sans JP';
+  font-family: 'Noto Sans JP',sans-serif;
 }
 
 @media (max-width: 650px) {
@@ -1851,7 +1851,7 @@ body {
   padding-right: 43px;
   padding-left: 43px;
   line-height: 45px;
-  font-family: 'Noto Sans JP';
+  font-family: 'Noto Sans JP',sans-serif;
 }
 
 @media (max-width: 1150px) {
@@ -1908,7 +1908,7 @@ body {
   padding-left: 34px;
   line-height: 45px;
   font-weight: bold;
-  font-family: 'Noto Sans JP';
+  font-family: 'Noto Sans JP',sans-serif;
 }
 
 @media (max-width: 1150px) {
@@ -1929,7 +1929,7 @@ body {
   .footer-btn-second {
     font-size: 12px;
     height: 40px;
-    line-height: 35px;
+    line-height: 25px;
     width: 160px;
   }
 }
@@ -1937,6 +1937,7 @@ body {
 @media (max-width: 480px) {
   .footer-btn-second {
     height: 30px;
+    line-height: 30px;
   }
 }
 
@@ -2040,7 +2041,7 @@ body {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  font-family: 'Noto Sans JP';
+  font-family: 'Noto Sans JP',sans-serif;
 }
 
 @media (max-width: 650px) {
