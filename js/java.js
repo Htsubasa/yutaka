@@ -19,6 +19,7 @@ $(function(){
     });
 })(jQuery);
 
+
 $(window).on('scroll', function (){
     var elem = $('.border');
     elem.each(function () {
@@ -32,7 +33,6 @@ $(window).on('scroll', function (){
             height: '250px'
         }, spped);          }
     });
-  
   });
 
 
@@ -66,7 +66,6 @@ $(window).on('scroll', function (){
                 height: '450px'
             }, spped);          }
         });
-      
       });
 
 
@@ -89,13 +88,6 @@ $(function () {
 $('.mainvisual-inner').append('<div id="curtain">');
 $('.mainvisual-logo').prepend('<div id="curtain2">');
     // 追加したdivを塗りつぶしてから透明化アニメーション
-    var curtain = $('#curtain').css({
-        position: 'absolute',
-        left: 0, top: 0,
-        width: '100%', height: '100%',
-        backgroundColor: 'black',
-        opacity: 100
-    });
     var curtain2 = $('#curtain2').css({
         position: 'absolute',
         left: 0, top: 0,
@@ -106,19 +98,12 @@ $('.mainvisual-logo').prepend('<div id="curtain2">');
     });
     curtain.animate({
         opacity: 0
-    }, 3000).promise().then(function(){
+    },1500).promise().then(function(){
         curtain2.animate({
-            opacity: 0
-        }, 3000)
+            opacity: 0 
+        }, 1500);           
     });
 });
-
-
-
-
-
-
-
 
 
 
@@ -172,3 +157,112 @@ $(window).scroll(function (){
 
 
 
+
+
+
+
+/*pick_up_menu_jquery*/
+
+$(function(){
+     $('.gallery-slider').infiniteslide({
+        'height': 800,		// 高さを指定
+        'speed': 10,		// スピードを指定
+        'direction' : 'left',	// スライドする向きを指定
+        'clone' : 2		// 子要素のコピー数を指定
+        });
+    });
+
+
+
+
+    var window_h = $(window).height();
+    $("#wh span").text(window_h);
+    //スクロールイベント
+    $(window).on("scroll", function() {
+      var scroll_top = $(window).scrollTop();
+      $("#scroll span").text(scroll_top);
+    
+      $(".vertical-line").each(function() {
+        var elem_pos = $(this).offset().top;
+        $(this).find(".box_pos span").text(Math.floor(elem_pos));
+      　
+        //どのタイミングでフェードインさせるか
+        if (scroll_top >= elem_pos - window_h+150) {
+          $(this).addClass("fadein");
+        } else {
+          $(this).removeClass("fadein");
+        }
+      });
+    });
+
+
+    $(window).scroll(function (){
+        $('p').each(function(){
+            var elemPos = $(this).offset().top,
+                scroll = $(window).scrollTop(),
+                windowHeight = $(window).height();
+              if (scroll > elemPos - windowHeight + 180){
+                  $(this).addClass('active');
+                }
+            });
+    });
+
+    $(window).scroll(function (){
+      $('.material-photo,.store-photo').each(function(){
+          var elemPos = $(this).offset().top,
+              scroll = $(window).scrollTop(),
+              windowHeight = $(window).height();
+            if (scroll > elemPos - windowHeight + -30){
+                $(this).addClass('active');
+              }
+          });
+  });
+
+
+    $(window).on('scroll', function (){
+        var elem = $('.store-border');
+        elem.each(function () {
+          var elemOffset = $(this).offset().top;
+          var scrollPos = $(window).scrollTop();
+          var wh = $(window).height();
+          if(scrollPos > elemOffset - wh + 100){
+            winW = $(window).width();
+            spped = 1000;
+            $('.store-border').animate({
+                height: '250px'
+            }, spped);          }
+        });
+      });
+
+
+    
+
+    
+      $(function () {
+        // bodyにdivを追加
+    $('h2').append('<div id="curtain">');
+    $('.topvisual-wrap').prepend('<div id="curtain2">');
+        // 追加したdivを塗りつぶしてから透明化アニメーション
+        var curtain = $('#curtain').css({
+            position: 'absolute',
+            left: 0, top: 0,
+            width: '100%', height: '100%',
+            backgroundColor: 'black',
+            opacity: 100
+        });
+        var curtain2 = $('#curtain2').css({
+            position: 'absolute',
+            left: 0, top: 0,
+            width: '100%', height: '100%',
+            backgroundColor: 'black',
+            opacity: 100,
+            //zIndex: -1,
+        });
+        curtain.animate({
+            opacity: 0
+        },2000).promise().then(function(){
+            curtain2.animate({
+                opacity: 0
+            }, 2000)
+        });
+    });
