@@ -328,18 +328,16 @@ body {
 }
 
 .header {
-  height: 100%;
-  background-color: black;
   width: 100%;
   z-index: 999;
-  position: relative;
+  position: fixed;
+  opacity: 0;
   /*inner*/
   /*btn-gnavi*/
   /*nav*/
 }
 
 .header-inner {
-  max-width: 1300px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -353,15 +351,25 @@ body {
       -ms-flex-align: center;
           align-items: center;
   height: 130px;
-  padding: 0 10px;
+  padding: 0 50px;
   z-index: 1000;
-  position: relative;
-  background-color: black;
+}
+
+@media (max-width: 1150px) {
+  .header-inner {
+    padding: 0 30px;
+  }
 }
 
 @media (max-width: 850px) {
   .header-inner {
     height: 80px;
+  }
+}
+
+@media (max-width: 650px) {
+  .header-inner {
+    padding: 0 20px;
   }
 }
 
@@ -573,7 +581,7 @@ body {
 
 .header-nav ul li {
   text-align: center;
-  margin-right: 55px;
+  margin-right: 49px;
   font-size: 18px;
   letter-spacing: 0.3em;
 }
@@ -654,7 +662,7 @@ body {
 .header-btn .contact-btn {
   border: 2px solid #B2A168;
   border-radius: 30px;
-  padding: 12px 26px;
+  padding: 12px 25px;
   color: #B2A168;
   font-size: 20px;
   font-family: 'Oswald', sans-serif;
@@ -663,7 +671,7 @@ body {
 @media (max-width: 1150px) {
   .header-btn .contact-btn {
     font-size: 1.2em;
-    padding: 8px 26px;
+    padding: 8px 19px;
   }
 }
 
@@ -694,6 +702,18 @@ body {
 }
 
 /*header*/
+.fadein {
+  opacity: 1;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
+
+.header-bacground {
+  background-color: black;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
 .mainvisual {
   background-color: black;
   top: -130px;
@@ -710,8 +730,20 @@ body {
   margin: 0 auto;
   background-position: fixed;
   /* 背景の位置指定 */
-  margin-bottom: -130px;
   height: 100vh;
+  position: relative;
+  margin-bottom: -130px;
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+}
+
+.mainvisual .inneractive {
+  opacity: 1;
+  -webkit-transition: 2.5s;
+  transition: 2.5s;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
 }
 
 .mainvisual-inner:before {
@@ -726,8 +758,7 @@ body {
 }
 
 .mainvisual-logo {
-  height: 100%;
-  position: relative;
+  opacity: 0;
   /*img*/
 }
 
@@ -735,10 +766,10 @@ body {
   width: 270px;
   height: 360px;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  top: 57%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+          transform: translateY(-50%) translateX(-50%);
   margin: auto;
 }
 
@@ -761,6 +792,12 @@ body {
     height: 140px;
     width: 120px;
   }
+}
+
+.mainvisual .visualfadein {
+  opacity: 1;
+  -webkit-transition: 2.5s;
+  transition: 2.5s;
 }
 
 /*mainvisual*/
