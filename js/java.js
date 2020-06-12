@@ -245,12 +245,21 @@ $(function(){
       });
       curtain.animate({
           opacity: 0
-      },2000).promise().then(function(){
+      },1300).promise().then(function(){
           curtain2.animate({
               opacity: 0
-          }, 2000)
+          }, 1300)
       });
   });
+
+
+
+
+
+
+
+
+
 
 
   $(function() {
@@ -260,7 +269,7 @@ $(function(){
 
 
 $(function(){
-  var imgHeight = $('.mainvisual').outerHeight(); //画像の高さを取得。これがイベント発火位置になる。
+  var imgHeight = $('.mainvisual, .topvisual').outerHeight(); //画像の高さを取得。これがイベント発火位置になる。
   var header = $('.header'); //ヘッダーコンテンツ
 
   $(window).on('load scroll', function(){
@@ -282,7 +291,7 @@ $(function(){
   });
 
 $(function(){
-  $('.mainvisual-inner').delay(1700).queue(function(){
+  $('.mainvisual-inner, .topvisual-wrap').delay(1700).queue(function(){
   $(this).addClass('inneractive').dequeue();
 });
 });
@@ -296,23 +305,31 @@ $(function(){
 
 
 
-
-
-
-
-
-
-
-
   jQuery(function($){
     $('.contents > div').hide();
     $('.tab-menu a').click(function () {
-        $('.contents > div').hide().filter(this.hash).fadeIn();
-  
+        $('.contents > div').hide().filter(this.hash).fadeIn(1500);
         $('.tab-menu a').removeClass('active');
-        $(this).addClass('active');
-  
+        $(this).addClass('active');  
         return false;
     }).filter(':eq(0)').click();
   });
+
+
+  
+
+  $(window).scroll(function (){
+    $('.box').each(function(){
+        var elemPos = $(this).offset().top,
+            scroll = $(window).scrollTop(),
+            windowHeight = $(window).height();
+          if (scroll > elemPos - windowHeight + 40){
+              $(this).addClass('box-fadein');
+            }
+        });
+
+});
+
+
+
 
